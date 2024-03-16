@@ -55,8 +55,6 @@ module.exports = buildSchema(`
         login(email:String!, password:String!):AuthData!
         logout:String!
         allBooks(searchTerm: String):[Book!]!
-        borrowBooks(bookId:String):String!
-        contactForBook(bookId:ID!):String!
     }
     
     type RootMutation{
@@ -64,6 +62,9 @@ module.exports = buildSchema(`
         createBook(bookInput:BookInput):Book
         updateBook(bookId: ID!, updateBookInput: UpdateBookInput): Book
         cancelBook(bookId:ID!):String
+        borrowBooks(bookId:String):String!
+        contactForBook(bookId:ID!):String!
+        approveBookBorrowRequest(notificationID:ID!):String!
     }
     schema{
         query:RootQuery
