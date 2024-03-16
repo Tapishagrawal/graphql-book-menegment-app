@@ -56,6 +56,7 @@ module.exports = buildSchema(`
         logout:String!
         allBooks(searchTerm: String):[Book!]!
         borrowBooks(bookId:String):String!
+        contactForBook(bookId:ID!):String!
     }
     
     type RootMutation{

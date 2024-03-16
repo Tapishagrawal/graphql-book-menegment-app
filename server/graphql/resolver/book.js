@@ -95,5 +95,34 @@ module.exports = {
         } catch (error) {
 
         }
+    },
+    contactForBook:async({bookId}, req)=>{
+        if (!req.isAuth) {
+            throw new Error("Unauthenticated!")
+        }
+        try {
+            const lentBook = await BookModel.findOne({_id:bookId}).populate("bookBorrowedBy");
+
+            if (!lentBook) {
+                throw new Error("Book not found")
+            }
+
+            const bookOwner = await UserModel.findOne({_id:lentBook.bookBorrowedBy._id});
+            if (!bookOwner) {
+                throw new Error("Book not found")
+            }
+            const isExist = bookOwner.notification.some(notification=>notification.bookId.equals(bookId))
+            if(isExist){
+                return "A notification already sent for this Book."
+            }
+            if(lentBook.bookBorrowedBy._id.toString()===req.user.userId.toString()){
+                throw new Error("appropriate action")
+            }
+            bookOwner.notification.push({bookId, renterId:req.user.userId});
+            await bookOwner.save()
+            return "Notification sent for book borrowing"
+        } catch (error) {
+            throw new Error(error)
+        }
     }
 }

@@ -21,6 +21,19 @@ const userSchema = Schema({
             type:Schema.Types.ObjectId,
             ref:"book"
         }
+    ],
+    notification:[
+        {
+            renterId:{
+                type:Schema.Types.ObjectId,
+                ref:"user"
+            },
+            bookId:{
+                type:Schema.Types.ObjectId,
+                ref:"book"
+
+            }
+        }
     ]
 },{
     versionKey:false

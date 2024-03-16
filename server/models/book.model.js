@@ -21,7 +21,7 @@ const bookSchema = Schema({
     },
     bookBorrowedBy: {
         type: Schema.Types.ObjectId,
-        res: "user",
+        ref: "user",
         default:null
     }
 }, {
