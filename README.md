@@ -30,6 +30,7 @@ To install all dependencies, run the following command:
 To run the server, execute the following command:
 
 `npm run start`
+
 <hr/>
 
 ## Usage
@@ -52,15 +53,16 @@ To run the server, execute the following command:
 }
       </pre>
     </td>
-    <td>createUser(userInput: UserInput)</td>
+    <td>createUser(userInput:UserInput):User</td>
     <td>
       <pre>
-{
-  "type": "User",
-  "_id": "ID",
-  "email": "String",
-  "role": "String"
-}
+type User {
+        _id:ID!
+        email:String!
+        password:String
+        role:String!
+        borrowedBooks:[Book!]
+    }
       </pre>
     </td>
   </tr>
@@ -74,15 +76,14 @@ To run the server, execute the following command:
 }
       </pre>
     </td>
-    <td>login(email: String!, password: String!)</td>
+    <td>login(email:String!, password:String!):AuthData!</td>
     <td>
       <pre>
-{
-  "type": "AuthData",
-  "userId": "ID",
-  "token": "String",
-  "tokenExpiration": "Int"
-}
+type AuthData {
+        userId: ID!
+        token: String!
+        tokenExpiration: Int!
+      }
       </pre>
     </td>
   </tr>
@@ -96,7 +97,7 @@ To run the server, execute the following command:
 }
       </pre>
     </td>
-    <td>logout</td>
+    <td>logout:String!</td>
     <td>
       <pre>
 {
@@ -116,22 +117,17 @@ To run the server, execute the following command:
 }
       </pre>
     </td>
-    <td>allBooks(searchTerm: String)</td>
+    <td>allBooks(searchTerm: String):[Book!]!</td>
     <td>
       <pre>
-{
-  "type": "Array",
-  "items": [
-    {
-      "_id": "ID",
-      "author": "String",
-      "price": "Float",
-      "title": "String",
-      "release_year": "Int",
-      "bookBorrowedBy": "User"
+type Book {
+        _id:ID!
+        author:String!
+        price:Float!
+        title:String!
+        release_year:Int!
+        bookBorrowedBy:User!
     }
-  ]
-}
       </pre>
     </td>
   </tr>
@@ -145,19 +141,17 @@ To run the server, execute the following command:
 }
       </pre>
     </td>
-    <td>allBooks(searchTerm: String)</td>
+    <td>allBooks(searchTerm: String):[Book!]!</td>
     <td>
       <pre>
-{
-  "type": "Array",
-  "items": [
-    {
-      "_id": "ID",
-      "author": "String",
-      "title": "String"
+type Book {
+        _id:ID!
+        author:String!
+        price:Float!
+        title:String!
+        release_year:Int!
+        bookBorrowedBy:User!
     }
-  ]
-}
       </pre>
     </td>
   </tr>
@@ -171,7 +165,8 @@ To run the server, execute the following command:
 }
       </pre>
     </td>
-    <td>borrowBooks(bookId: String)</td>
+    <td>        borrowBooks(bookId:String):String!
+</td>
     <td>
       <pre>
 {
@@ -191,7 +186,8 @@ To run the server, execute the following command:
 }
       </pre>
     </td>
-    <td>contactForBook(bookId: ID!)</td>
+    <td>        contactForBook(bookId:ID!):String!
+</td>
     <td>
       <pre>
 {
@@ -211,7 +207,8 @@ To run the server, execute the following command:
 }
       </pre>
     </td>
-    <td>approveBookBorrowRequest(notificationID: ID!)</td>
+    <td>approveBookBorrowRequest(notificationID:ID!):String!
+</td>
     <td>
       <pre>
 {
