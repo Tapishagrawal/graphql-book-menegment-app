@@ -23,7 +23,7 @@ Welcome to the IdeaClan Book Management App with GraphQL project. This project a
 
 To install all dependencies, run the following command:
 
-`npm install`
+`npm install or npm i`
 
 ## Running the Server
 
