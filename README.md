@@ -228,4 +228,6 @@ You can access the deployed application [here](https://graphql-book-menegment-ap
 
 For more detailed API documentation and testing, please refer to the [Postman Collection](https://speeding-trinity-718409.postman.co/workspace/New-Team-Workspace~fbcd3a3b-c6f6-4d19-b458-99ac3e176cae/collection/28670083-14468798-b67f-47d8-bd10-61ced65cdaee?action=share&creator=28670083).
 
-Thank you for using IdeaClan Book Management App with GraphQL! If you have any questions or feedback, please feel free to reach out.
+Thank you for using the IdeaClan Book Management App with GraphQL! If you have any questions or feedback, please feel free to reach out.
+
+### Note: Please wait while using, the server deployed on render might be it  take time to execute.
