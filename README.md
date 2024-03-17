@@ -7,7 +7,7 @@ Welcome to the IdeaClan Book Management App with GraphQL project. This project a
 - **User Authentication**: Users can register, login, and logout with different roles (user, admin).
 - **Admin Privileges**: Only admins can create, delete, or update books.
 - **Book Management**: Users can browse all books, search for specific books, borrow books, and request books from other users.
-- **Notification System**: Users receive notifications when their borrowed books are approved.
+- **Notification System**: Users receive notifications when any user requests to borrow books.
 
 ## Technology Stack
 
