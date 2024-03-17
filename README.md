@@ -30,6 +30,9 @@ To install all dependencies, run the following command:
 To run the server, execute the following command:
 
 `npm run start`
+<hr/>
+
+## Usage
 
 <table>
   <tr>
